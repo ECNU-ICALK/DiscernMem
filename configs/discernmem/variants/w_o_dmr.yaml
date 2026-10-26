@@ -1,0 +1,2 @@
+# w/o defect-aware memory refinement: rewrites are committed without validation.
+evolution_mode: direct_overwrite

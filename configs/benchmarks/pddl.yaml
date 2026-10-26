@@ -1,0 +1,44 @@
+dataset:
+  name: pddl
+  family: planning
+  source: data/pddl/test.jsonl
+  metric: success_rate
+  split_rule:
+    test: "fixed local JSONL order"
+  supported_games: [gripper, blockworld, barman, tyreworld]
+
+model:
+  load_model_path: null
+  mas:
+    structure: autogen
+    supported_structures: [autogen, camel, macnet]
+    llm_name_or_path: Qwen/Qwen3-4B-Instruct-2507
+
+run:
+  seed: 42
+  working_dir: null
+  device: 0
+  mode: eval
+  generation:
+    max_new_tokens: 512
+    do_sample: false
+    temperature: 0.0
+    early_stopping: true
+    use_cache: true
+  interaction:
+    batch_size: 4
+    max_turns: 30
+    max_obs_length: 2048
+    timeout_seconds: 300
+
+# Runner settings used for every reported PDDL run (scripts/run.py).
+protocol:
+  data_split: test
+  start_from: 0
+  num_tasks: 60
+  max_turns: 30
+  timeout_seconds: 0
+  pddl_env_mode: agentboard
+  pddl_action_guard: strict
+  discernmem_replay_workers: 8
+  discernmem_replay_timeout_seconds: 600

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["candidates", "no_update_reason"],
+  "properties": {
+    "candidates": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "diagnosis", "atomic_rule_count", "edit_operation", "old_text_or_anchor", "edit_text",
+          "expected_change", "evidence_refs", "claimed_preserved_capability_ids",
+          "required_handoffs"
+        ],
+        "properties": {
+          "diagnosis": {"type": "string", "minLength": 5},
+          "atomic_rule_count": {"const": 1},
+          "edit_operation": {"enum": ["ADD", "REPLACE", "DELETE", "REORDER"]},
+          "old_text_or_anchor": {"type": "string", "minLength": 1},
+          "edit_text": {"type": "string", "maxLength": 3000},
+          "expected_change": {"type": "string", "minLength": 5},
+          "evidence_refs": {
+            "type": "array", "items": {"type": "string"}, "minItems": 1,
+            "maxItems": 8, "uniqueItems": true
+          },
+          "claimed_preserved_capability_ids": {
+            "type": "array", "items": {"type": "string"}, "uniqueItems": true
+          },
+          "required_handoffs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["from_role", "to_role", "purpose"],
+              "properties": {
+                "from_role": {"type": "string"},
+                "to_role": {"type": "string"},
+                "purpose": {"type": "string"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "no_update_reason": {"type": "string"}
+  }
+}

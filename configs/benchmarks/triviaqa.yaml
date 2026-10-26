@@ -1,0 +1,46 @@
+dataset:
+  name: triviaqa
+  family: qa
+  source: mandarjoshi/trivia_qa
+  subset: rc.wikipedia.nocontext
+  metric: answer_accuracy
+  split_rule:
+    train: "train[0:5000]"
+    valid: "validation[0:1000]"
+    test: "validation[1000:]"
+  search:
+    retriever: Search-R1 wiki-18 e5
+    topk: 3
+
+model:
+  load_model_path: null
+  mas:
+    structure: autogen
+    supported_structures: [autogen, camel, macnet]
+    llm_name_or_path: Qwen/Qwen3-4B-Instruct-2507
+
+run:
+  seed: 42
+  working_dir: null
+  device: 0
+  mode: eval
+  generation:
+    max_new_tokens: 1024
+    do_sample: false
+    temperature: 0.0
+    early_stopping: true
+    use_cache: true
+  interaction:
+    batch_size: 16
+    max_turns: 5
+    max_obs_length: 4096
+
+# Runner settings used for every reported TriviaQA run (scripts/run.py).
+protocol:
+  data_split: test
+  start_from: 0
+  num_tasks: 6993
+  max_turns: 5
+  search_url: http://127.0.0.1:8000/retrieve
+  discernmem_replay_workers: 8
+  discernmem_replay_timeout_seconds: 600

@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "discernmem"
+version = "0.1.0"
+description = "DiscernMem: refining memories and learning when to use them in multi-agent systems"
+readme = "README.md"
+requires-python = ">=3.10,<3.12"
+license = { text = "MIT" }
+# Exact versions used for the reported runs are listed in requirements.txt.
+dependencies = [
+  "numpy",
+  "requests",
+  "python-dotenv",
+  "PyYAML",
+  "jsonschema",
+  "networkx",
+  "datasets",
+  "gym<0.27",
+  "scipy",
+  "matplotlib",
+  "imageio",
+  "scikit-image",
+  "Pillow",
+]
+
+[tool.setuptools.packages.find]
+include = ["discernmem*", "mas*", "data*", "common*"]
+
+[tool.setuptools.package-data]
+discernmem = ["prompt/**/*.md", "prompt/**/*.json"]

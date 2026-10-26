@@ -1,0 +1,24 @@
+# DiscernMem runtime (Python 3.10, Linux). Versions are those used for the reported runs.
+numpy==2.2.6
+requests==2.32.5
+python-dotenv==1.2.2
+PyYAML==6.0.3
+jsonschema==4.26.0
+networkx==3.4.2
+datasets==4.8.3
+
+# PDDL: dependencies of the vendored AgentBoard PDDLGym (data/pddl/agentboard_pddlgym)
+gym==0.26.2
+scipy==1.15.3
+matplotlib==3.10.8
+ImageIO==2.37.3
+scikit-image==0.24.0
+Pillow>=10.3.0,<11.0
+
+# KodCode: libraries imported by the benchmark's test files (run with this interpreter)
+pytest==9.0.2
+pandas==2.3.3
+torch==2.10.0
+seaborn==0.13.2
+scikit-learn==1.7.2
+pytz==2026.1.post1

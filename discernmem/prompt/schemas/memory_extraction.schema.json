@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["decision", "memory", "use_when", "avoid_when"],
+  "properties": {
+    "decision": {
+      "type": "string",
+      "enum": ["STORE", "NO_MEMORY"],
+      "description": "Choose whether the target role demonstrated a transferable decision before writing memory content."
+    },
+    "memory": {"type": "string", "description": "The reusable rule or strategy itself, without repeating use_when or avoid_when conditions."},
+    "use_when": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "avoid_when": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  }
+}

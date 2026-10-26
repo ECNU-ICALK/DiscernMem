@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "use_when_matches",
+    "avoid_when_matches",
+    "behavior_changed",
+    "specific_problem_type",
+    "specific_problem",
+    "trajectory_evidence_refs",
+    "deployment_avoid_when"
+  ],
+  "properties": {
+    "use_when_matches": {
+      "type": "boolean"
+    },
+    "avoid_when_matches": {
+      "type": "boolean"
+    },
+    "behavior_changed": {
+      "type": "boolean"
+    },
+    "specific_problem_type": {
+      "type": "string",
+      "enum": [
+        "",
+        "missing_step",
+        "wrong_condition",
+        "wrong_order",
+        "unexecutable_action",
+        "missing_progress_check",
+        "wrong_stop_condition"
+      ]
+    },
+    "specific_problem": {
+      "type": "string"
+    },
+    "trajectory_evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "maxItems": 8
+    },
+    "deployment_avoid_when": {
+      "type": "string"
+    }
+  }
+}

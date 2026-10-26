@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "use_when_matches",
+    "avoid_when_matches",
+    "deployment_avoid_when"
+  ],
+  "properties": {
+    "use_when_matches": {
+      "type": "boolean"
+    },
+    "avoid_when_matches": {
+      "type": "boolean"
+    },
+    "deployment_avoid_when": {
+      "type": "string"
+    }
+  }
+}

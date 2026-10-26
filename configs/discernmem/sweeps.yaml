@@ -1,0 +1,25 @@
+# Experiment groups launched by scripts/run_sweep.py.
+# `runner` entries override the benchmark protocol for every run in the group.
+
+ablation:
+  variants: [full, w_o_dmr, w_o_blm, w_o_both]
+  runner:
+    discernmem_replay_timeout_seconds: 6000
+
+hparam:
+  mas: autogen
+  runner:
+    discernmem_replay_timeout_seconds: 6000
+  sweeps:
+    repair_rounds:            # DMR repair-round limit R
+      key: max_evolution_rounds
+      values: [1, 2, 3, 4, 5]
+      benchmarks: [pddl]
+    injection:                # memories injected per task and role (k_inj)
+      key: max_injected_memories
+      values: [0, 1, 2, 3]
+      benchmarks: [pddl, kodcode]
+    identity_matching:        # admission identity-matching candidates (k_id)
+      key: admission_top_k
+      values: [0, 5, 10, 15, 20]
+      benchmarks: [pddl, kodcode]

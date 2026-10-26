@@ -1,0 +1,37 @@
+admission_top_k: 5
+enable_h3: true
+enable_capability_constraints: true
+enable_h1_validation: true
+enable_h2_validation: true
+enable_mas_guidance: true
+enable_provisional_retrieval: true
+enable_retrieval_selector: true
+enable_required_handoffs: false
+evolution_mode: cpe
+enable_birth_calibration: true
+enable_birth_cpe: true
+epsilon: 0.01
+h1_max_tasks: 2
+h2_tasks: 1
+h3_tasks: 1
+max_injected_memories: 1
+min_retrieval_similarity: 0.25
+max_repair_candidates: 3
+max_evolution_rounds: 3
+enable_neutral_repair: true
+method_name: DiscernMem
+min_stable_tasks: 2
+namespace: discernmem
+identity_recall_mode: semantic
+retrieval_top_k: 3
+retrieval_policy: semantic_top_k
+schema_version: 1
+seeds:
+  - 42
+split_manifest:
+  final_test_task_ids: []
+  h_candidate_task_ids: []
+  learning_task_ids: []
+enable_role_conditioning: true
+enable_use_avoid_conditions: true
+enable_dataset_task_guidance: true

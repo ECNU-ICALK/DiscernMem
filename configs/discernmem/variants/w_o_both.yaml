@@ -1,0 +1,4 @@
+# Both ablations combined.
+evolution_mode: direct_overwrite
+enable_role_conditioning: false
+enable_use_avoid_conditions: false

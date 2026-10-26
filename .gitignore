@@ -1,0 +1,33 @@
+# Python/cache
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environments and secrets
+/.venv/
+.env
+.env.*
+!.env.example
+*token*
+*secret*
+*key*
+
+# Vendored PDDL backend assets are part of the dataset environment.
+!data/pddl/agentboard_pddlgym/
+!data/pddl/agentboard_pddlgym/**
+data/pddl/agentboard_pddlgym/**/__pycache__/
+data/pddl/agentboard_pddlgym/**/*.py[cod]
+
+# Runtime outputs
+logs/
+results/
+*.log
+*.prof
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/

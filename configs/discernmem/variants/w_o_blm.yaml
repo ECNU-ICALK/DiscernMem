@@ -1,0 +1,3 @@
+# w/o boundary-learning meta-memory: no role conditioning, no use/avoid conditions.
+enable_role_conditioning: false
+enable_use_avoid_conditions: false

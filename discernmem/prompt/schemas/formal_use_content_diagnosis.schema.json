@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "specific_problem_type",
+    "specific_problem",
+    "trajectory_evidence_refs"
+  ],
+  "properties": {
+    "specific_problem_type": {
+      "type": "string",
+      "enum": [
+        "",
+        "missing_step",
+        "wrong_condition",
+        "wrong_order",
+        "unexecutable_action",
+        "missing_progress_check",
+        "wrong_stop_condition"
+      ]
+    },
+    "specific_problem": {
+      "type": "string"
+    },
+    "trajectory_evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "maxItems": 8
+    }
+  }
+}
